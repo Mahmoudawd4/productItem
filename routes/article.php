@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // });
 //crad category
 
-// //list cate
+//list cate
 // Route::get(
 //     '/cat',
 //     [CategoryController::class, 'list']
@@ -67,45 +67,45 @@ use Illuminate\Support\Facades\Route;
 
 //////////////////////////////////// Crad  articals  ///////////////
 
-// Route::get(
-//     '/arti',
-//     [ArticleController::class, 'list']
-// )->name('arti.list');
+Route::get(
+    '/arti',
+    [ArticleController::class, 'list']
+)->name('arti.list');
 
-// //show cate
-// Route::get(
-//     'arti/show/{id}',
-//     [ArticleController::class, 'show']
-// )->name('arti.show');
-
-
-// //crete
-// Route::get(
-//     'arti/create',
-//     [ArticleController::class, 'create']
-// )->name('arti.create');
-// Route::post(
-//     'arti/store',
-//     [ArticleController::class, 'store']
-// )->name('arti.store');
-
-// //update
-// Route::get(
-//     'arti/edit/{id}',
-//     [ArticleController::class, 'edit']
-// )->name('arti.edit');
+//show cate
+Route::get(
+    'arti/show/{id}',
+    [ArticleController::class, 'show']
+)->name('arti.show');
 
 
-// Route::post(
-//     'arti/update/{id}',
-//     [ArticleController::class, 'update']
-// )->name('arti.update');
+//crete
+Route::get(
+    'arti/create',
+    [ArticleController::class, 'create']
+)->name('arti.create');
+Route::post(
+    'arti/store',
+    [ArticleController::class, 'store']
+)->name('arti.store');
 
-// //Delete
-// Route::delete(
-//     'arti/delete/{id}',
-//     [ArticleController::class, 'delete']
-// )->name('arti.delete');
+//update
+Route::get(
+    'arti/edit/{id}',
+    [ArticleController::class, 'edit']
+)->name('arti.edit');
+
+
+Route::post(
+    'arti/update/{id}',
+    [ArticleController::class, 'update']
+)->name('arti.update');
+
+//Delete
+Route::delete(
+    'arti/delete/{id}',
+    [ArticleController::class, 'delete']
+)->name('arti.delete');
 
 
 

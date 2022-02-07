@@ -22,46 +22,46 @@ use Illuminate\Support\Facades\Route;
 // });
 //crad category
 
-// //list cate
-// Route::get(
-//     '/cat',
-//     [CategoryController::class, 'list']
-// )->name('cat.list');
+//list cate
+Route::get(
+    '/cat',
+    [CategoryController::class, 'list']
+)->name('cat.list');
 
-// //show cate
-// Route::get(
-//     'cat/show/{id}',
-//     [CategoryController::class, 'show']
-// )->name('cat.show');
-
-
-// //crete
-// Route::get(
-//     'cat/create',
-//     [CategoryController::class, 'create']
-// )->name('cat.create');
-// Route::post(
-//     'cat/store',
-//     [CategoryController::class, 'store']
-// )->name('cat.store');
-
-// //update
-// Route::get(
-//     'cat/edit/{id}',
-//     [CategoryController::class, 'edit']
-// )->name('cat.edit');
+//show cate
+Route::get(
+    'cat/show/{id}',
+    [CategoryController::class, 'show']
+)->name('cat.show');
 
 
-// Route::post(
-//     'cat/update/{id}',
-//     [CategoryController::class, 'update']
-// )->name('cat.update');
+//crete
+Route::get(
+    'cat/create',
+    [CategoryController::class, 'create']
+)->name('cat.create');
+Route::post(
+    'cat/store',
+    [CategoryController::class, 'store']
+)->name('cat.store');
 
-// //Delete
-// Route::delete(
-//     'cat/delete/{id}',
-//     [CategoryController::class, 'delete']
-// )->name('cat.delete');
+//update
+Route::get(
+    'cat/edit/{id}',
+    [CategoryController::class, 'edit']
+)->name('cat.edit');
+
+
+Route::post(
+    'cat/update/{id}',
+    [CategoryController::class, 'update']
+)->name('cat.update');
+
+//Delete
+Route::delete(
+    'cat/delete/{id}',
+    [CategoryController::class, 'delete']
+)->name('cat.delete');
 
 
 

@@ -8,7 +8,12 @@
 
     @csrf
 
-  <input type="text" name="name"  class="form-control" placeholder="name" value="" >
+  <input type="text" name="name"  class="form-control" class="@error('name') is-invalid @enderror" placeholder="name" value="{{ old('name')}}" >
+
+@error('name')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
+
 
   <button type="submit" class="btn btn-primary mt-5">submit</button>
 

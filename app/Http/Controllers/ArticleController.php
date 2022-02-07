@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArtiRequest;
+use App\Http\Requests\ArtiupdateRequest;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -29,16 +31,19 @@ class ArticleController extends Controller
         $cates=Category::select('id','name')->get();
         return view('arti.create',compact('cates'));
     }
-    public function store(Request $request){
+    public function store(ArtiRequest $request){
 
         //validation
-        $request->validate([
-            'name' =>'required|string|max:100',
-            'details' =>'string|max:100',
-            'slug' =>'string|max:100',
-            'category_ids'=>'required',
-            'category_ids.*'=>'exists:categories,id'
-        ]);
+
+        // $request->validate([
+        //     'name' =>'required|string|max:100',
+        //     'details' =>'required|string|max:100',
+        //     'slug' =>'required|unique:articles|string|max:100',
+        //     'is_used' =>'required|string|max:100',
+        //     'category_ids'=>'required',
+        //     'category_ids.*'=>'exists:categories,id'
+        // ]);
+        $request->validated();
 
         $arti=Article::create([
             'name'=>$request->name,
@@ -62,15 +67,15 @@ class ArticleController extends Controller
         return view('arti.edit',compact('arti'));
     }
 
-    public function update(Request $request ,$id){
-
+    public function update(ArtiupdateRequest $request ,$id){
         //validation
-        $request->validate([
-            'name' =>'required|string|max:100',
-            'details' =>'string|max:100',
-            'slug' =>'string|max:100',
-        ]);
-
+        // $request->validate([
+        //     'name' =>'required|string|max:100',
+        //     'details' =>'required|string|max:100',
+        //     'slug' =>'required|string|max:100',
+        //     'is_used' =>'required|string|max:100',
+        // ]);
+        $request->validated();
         $arti=Article::findOrFail($id);
         $arti->update([
             'name'=>$request->name,
@@ -78,7 +83,6 @@ class ArticleController extends Controller
             'slug'=>$request->slug ,
             'is_used'=>$request->is_used ,
         ]);
-
         return redirect(route('arti.list',$id));
     }
 
