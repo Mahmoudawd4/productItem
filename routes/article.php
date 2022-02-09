@@ -83,29 +83,29 @@ Route::get(
 Route::get(
     'arti/create',
     [ArticleController::class, 'create']
-)->name('arti.create');
+)->middleware(['auth','isAdmin','dob'])->name('arti.create');
 Route::post(
     'arti/store',
     [ArticleController::class, 'store']
-)->name('arti.store');
+)->middleware(['auth','isAdmin','dob'])->name('arti.store');
 
 //update
 Route::get(
     'arti/edit/{id}',
     [ArticleController::class, 'edit']
-)->name('arti.edit');
+)->middleware(['auth','isAdmin','dob'])->name('arti.edit');
 
 
 Route::post(
     'arti/update/{id}',
     [ArticleController::class, 'update']
-)->name('arti.update');
+)->middleware(['auth','isAdmin','dob'])->name('arti.update');
 
 //Delete
 Route::delete(
     'arti/delete/{id}',
     [ArticleController::class, 'delete']
-)->name('arti.delete');
+)->middleware(['auth','isAdmin','dob'])->name('arti.delete');
 
 
 

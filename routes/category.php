@@ -26,42 +26,41 @@ use Illuminate\Support\Facades\Route;
 Route::get(
     '/cat',
     [CategoryController::class, 'list']
-)->name('cat.list');
-
+)->middleware(['auth'])->name('cat.list');
 //show cate
 Route::get(
     'cat/show/{id}',
     [CategoryController::class, 'show']
-)->name('cat.show');
+)->middleware(['auth'])->name('cat.show');
 
 
 //crete
 Route::get(
     'cat/create',
     [CategoryController::class, 'create']
-)->name('cat.create');
+)->middleware(['auth','isAdmin','dob'])->name('cat.create');
 Route::post(
     'cat/store',
     [CategoryController::class, 'store']
-)->name('cat.store');
+)->middleware(['auth','isAdmin','dob'])->name('cat.store');
 
 //update
 Route::get(
     'cat/edit/{id}',
     [CategoryController::class, 'edit']
-)->name('cat.edit');
+)->middleware(['auth','isAdmin','dob'])->name('cat.edit');
 
 
 Route::post(
     'cat/update/{id}',
     [CategoryController::class, 'update']
-)->name('cat.update');
+)->middleware(['auth','isAdmin','dob'])->name('cat.update');
 
 //Delete
 Route::delete(
     'cat/delete/{id}',
     [CategoryController::class, 'delete']
-)->name('cat.delete');
+)->middleware(['auth','isAdmin','dob'])->name('cat.delete');
 
 
 
