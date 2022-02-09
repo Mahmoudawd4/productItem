@@ -18,8 +18,8 @@ class ArticleCategory extends Migration
         Schema::create('article_category', function (Blueprint $table) {
             $table->id();
             //two forigen kes : category_id , book_id
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('article_id')->constrained()->onDelete('cascade');;
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');;
+            $table->foreignId('article_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -35,7 +35,6 @@ class ArticleCategory extends Migration
     public function down()
     {
         //
-
         Schema::dropIfExists('book_category');
     }
 }
