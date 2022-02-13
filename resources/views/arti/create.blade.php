@@ -4,8 +4,7 @@
 
 
 
-    <form class="form-group w-75 py-5 m-auto " method="POST" action="{{ route('arti.store') }}">
-
+    <form class="form-group w-75 py-5 m-auto " method="POST" action="{{ route('arti.store') }}" enctype="multipart/form-data">
         @csrf
 
         <input type="text" name="name" class="form-control" class="@error('name') is-invalid @enderror" placeholder="name"
@@ -51,6 +50,10 @@
         @endforeach
 
 
+        <input type="file" name="image" id="">
+        @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
         <button type="submit" class="btn btn-primary mt-5">submit</button>
 
     </form>

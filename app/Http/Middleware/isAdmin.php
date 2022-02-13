@@ -18,7 +18,6 @@ class isAdmin
     {
         if (auth()->user()->isAdmin) {
             # code...
-
             return $next($request);
         }else
         {

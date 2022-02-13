@@ -11,9 +11,14 @@
 
             <h1>Articale slug :    {{$arti ->slug}}</h1>
 
+            @if ($arti->image)
+            <h1>Articale image :  </h1> <img src="{{asset('/uploads/'.$arti->image)}}" width="200" height="200" alt="">
+            @endif
+
+
             <h3>Categories :</h3>
             <ul>
-                @foreach ($arti->categories as $cate)   
+                @foreach ($arti->categories as $cate)
                 <li>
 
                     {{$cate->name}}

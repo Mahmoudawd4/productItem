@@ -52,12 +52,19 @@ class ArticleController extends Controller
         //     'category_ids.*'=>'exists:categories,id'
         // ]);
         $request->validated();
+        // dd($request);
+
+        $img=$request->file('image');             //bmsek el soura
+        $ext=$img->getClientOriginalExtension();   //bgeb extention
+        $image="arti-".uniqid().".$ext";            // conncat ext +name elgded
+        $img->move(public_path("uploads"),$image);
 
         $arti=Article::create([
             'name'=>$request->name,
             'details'=>$request->details ,
             'slug'=>$request->slug ,
             'is_used'=>$request->is_used ,
+            'image'=>$image ,
         ]);
 
         $arti->categories()->sync($request->category_ids);

@@ -27,7 +27,7 @@ class ArtiupdateRequest extends FormRequest
             //
             'name' =>'required|string|max:10|min:3',
             'details' =>'required|string|max:10|min:3',
-            'slug' =>'required|unique:articles|string|max:10|min:3',
+            'slug' =>'required|string|max:10|min:3',
             'is_used' =>'required|string|max:1',
         ];
     }

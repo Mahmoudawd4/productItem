@@ -30,7 +30,9 @@ class ArtiRequest extends FormRequest
             'slug' =>'required|unique:articles|string|max:10|min:3',
             'is_used' =>'required|string|max:1',
             'category_ids'=>'required',
-            'category_ids.*'=>'exists:categories,id'
+            'category_ids.*'=>'exists:categories,id',
+            'image'=>'image|mimes:jpeg,png',
+
         ];
     }
 }
