@@ -18,11 +18,11 @@ class UserSeeder extends Seeder
     {
         //
 
-        // DB::table('users')->insert([
-        //     'name' => Str::random(5),
-        //     'email' => Str::random(5).'@gmail.com',
-        //     'password' => Hash::make('password'),
-        // ]);
+        DB::table('users')->insert([
+            'name' => Str::random(5),
+            'email' => Str::random(5).'@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
 
 
     }

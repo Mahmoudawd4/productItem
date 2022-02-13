@@ -10,12 +10,20 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    //
+    //dashboard.pages.data
+
+    // function list(){
+    //     // get all cate from db
+    //     $arti=Article::get();
+    //     return view('arti.index',[
+    //         'arti' => $arti,
+    //     ]);
+    // }
 
     function list(){
         // get all cate from db
         $arti=Article::get();
-        return view('arti.index',[
+        return view('dashboard.pages.data',[
             'arti' => $arti,
         ]);
     }
